@@ -1,8 +1,8 @@
-var page = "index"
-var logger = require('morgan');
+const page = "index"
+const logger = require('../logger').getLogger("index-route");
 
 module.exports.delegate = function(req, res, next) {
-  logger("indexing")
+  logger.info("indexing")
   res.render(page, {title: "Express"});
 };
 

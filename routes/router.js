@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-var logger = require('morgan');
+const logger = require('../logger').getLogger("router");
 
 
 //automatically index all controller routes by reading the controller directory
@@ -9,7 +9,7 @@ var logger = require('morgan');
 //renders a request or forwards it and have exported their associated path
 fs.readdir("./controllers/", (err, files) => {
     if(err){
-        logger(err)
+        logger.error(err)
     }
     files.forEach(file => interpretController(file));
 });
