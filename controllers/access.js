@@ -1,6 +1,6 @@
 const page = "access"
 const funcMap = new Map();
-const forwardUrl = "http://localhost:8000/" + page;
+const forwardUrl = (process.env.REDIRECT || "http://localhost:8000/") + page;
 const request = require("request")
 const logger = require("../logger").getLogger("access-route");
 
