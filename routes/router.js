@@ -19,6 +19,7 @@ function interpretController(file){
     var controller = require("../controllers/"+file);
     router.get(controller.path, controller.delegate);
     router.post(controller.path, controller.delegate)
+    router.put(controller.path, controller.delegate)
 }
 
 module.exports = router;
